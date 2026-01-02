@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PodCommute</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="theme-color" content="#111111" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>PodCommute</h1>
+    <p class="sub">Download/queue the latest 3 NPR News Now + CNN 5 Things, then play near a trigger location.</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Feeds</h2>
+      <div class="row">
+        <button id="btnRefresh">Refresh (Latest 3)</button>
+        <button id="btnPlayQueue" class="primary">Play Commute Queue</button>
+      </div>
+      <div class="small" id="status">Ready.</div>
+      <div class="small warn" id="corsNote"></div>
+    </section>
+
+    <section class="card">
+      <h2>Location Trigger (while app is open)</h2>
+
+      <div class="grid">
+        <label>
+          Trigger latitude
+          <input id="lat" type="number" step="0.000001" placeholder="e.g., 33.953350" />
+        </label>
+        <label>
+          Trigger longitude
+          <input id="lon" type="number" step="0.000001" placeholder="e.g., -117.396156" />
+        </label>
+        <label>
+          Radius (meters)
+          <input id="radius" type="number" step="1" min="25" value="250" />
+        </label>
+      </div>
+
+      <div class="row">
+        <button id="btnUseCurrent">Use Current Location</button>
+        <button id="btnStartWatch">Start Watching</button>
+        <button id="btnStopWatch" class="ghost">Stop</button>
+      </div>
+
+      <div class="small">
+        Watch state: <span id="watchState">OFF</span> |
+        Distance: <span id="distance">—</span>
+      </div>
+      <div class="small">
+        Tip: Autoplay may be blocked — if so, tap <b>Play Commute Queue</b> once when you start your drive.
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Now Playing</h2>
+      <div class="small" id="nowPlaying">Nothing yet.</div>
+      <audio id="audio" controls preload="none"></audio>
+      <div class="row">
+        <button id="btnPrev" class="ghost">◀ Prev</button>
+        <button id="btnNext" class="ghost">Next ▶</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Latest Episodes</h2>
+
+      <div class="twoCol">
+        <div>
+          <h3>NPR News Now (Latest 3)</h3>
+          <ul id="listNpr" class="list"></ul>
+        </div>
+        <div>
+          <h3>CNN 5 Things (Latest 3)</h3>
+          <ul id="listCnn" class="list"></ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="small">
+    <span>PodCommute PWA (JS)</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

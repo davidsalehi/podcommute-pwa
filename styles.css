@@ -1,0 +1,70 @@
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: #0b0b0b;
+  color: #f2f2f2;
+}
+header {
+  padding: 16px;
+  border-bottom: 1px solid #222;
+}
+h1 { margin: 0 0 6px; font-size: 22px; }
+.sub { margin: 0; opacity: 0.8; }
+
+main { padding: 16px; display: grid; gap: 14px; max-width: 980px; margin: 0 auto; }
+.card {
+  border: 1px solid #222;
+  background: #111;
+  border-radius: 14px;
+  padding: 14px;
+}
+h2 { margin: 0 0 10px; font-size: 18px; }
+h3 { margin: 0 0 10px; font-size: 16px; opacity: 0.95; }
+
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 10px; }
+label { display: grid; gap: 6px; font-size: 13px; opacity: 0.95; }
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #2a2a2a;
+  border-radius: 10px;
+  background: #0d0d0d;
+  color: #f2f2f2;
+}
+button {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #2a2a2a;
+  background: #1a1a1a;
+  color: #fff;
+  cursor: pointer;
+}
+button:hover { filter: brightness(1.1); }
+button.primary { background: #2b6cff; border-color: #2b6cff; }
+button.ghost { background: transparent; }
+
+.small { font-size: 12px; opacity: 0.85; margin-top: 8px; }
+.warn { color: #ffd37a; opacity: 0.95; }
+
+.twoCol { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.list { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.item {
+  border: 1px solid #242424;
+  background: #0e0e0e;
+  border-radius: 12px;
+  padding: 10px;
+}
+.item .title { font-size: 13px; margin-bottom: 6px; }
+.item .meta { font-size: 12px; opacity: 0.75; margin-bottom: 8px; }
+.item .actions { display: flex; gap: 8px; flex-wrap: wrap; }
+
+audio { width: 100%; margin-top: 10px; }
+
+footer { padding: 16px; text-align: center; border-top: 1px solid #222; }
+@media (max-width: 800px) {
+  .grid { grid-template-columns: 1fr; }
+  .twoCol { grid-template-columns: 1fr; }
+}

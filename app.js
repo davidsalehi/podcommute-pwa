@@ -19,7 +19,7 @@ const FEEDS = {
 // You will run a tiny proxy (provided below) and set it like:
 // const PROXY = "http://localhost:8787/rss?url=";
 // For production you’ll deploy this proxy to a serverless endpoint.
-const PROXY = "http://localhost:8787/rss?url=";
+const PROXY = "https://ancient-sunset-8391.davidsalehi.workers.dev/?url=";
 
 const statusEl = document.getElementById("status");
 const corsNoteEl = document.getElementById("corsNote");
@@ -362,3 +362,4 @@ window.addEventListener("load", () => {
   // Show stored queue state
   setStatus("Ready. Tap Refresh.");
 });
+

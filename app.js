@@ -194,10 +194,18 @@ async function refreshAll() {
 
 // --- Queue + playback ---
 function buildCommuteQueue() {
+  const npr = (store.npr || []).filter(x => x.audioUrl);
+  const cnn = (store.cnn || []).filter(x => x.audioUrl);
+
   const q = [];
-  q.push(...(store.npr || []));
-  q.push(...(store.cnn || []));
-  return q.filter(x => x.audioUrl);
+  const maxLen = Math.max(npr.length, cnn.length);
+
+  for (let i = 0; i < maxLen; i++) {
+    if (npr[i]) q.push(npr[i]);
+    if (cnn[i]) q.push(cnn[i]);
+  }
+
+  return q;
 }
 
 async function playQueue(userInitiated = false) {
@@ -452,3 +460,4 @@ window.addEventListener("load", () => {
 
   setStatus("Ready. Tap Refresh.");
 });
+

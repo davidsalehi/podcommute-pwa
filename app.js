@@ -42,6 +42,7 @@ const btnStartWatch = document.getElementById("btnStartWatch");
 const btnStopWatch = document.getElementById("btnStopWatch");
 const watchStateEl = document.getElementById("watchState");
 const distanceEl = document.getElementById("distance");
+const btnBack10 = document.getElementById("btnBack10");
 
 // --- State ---
 let store = {
@@ -443,6 +444,14 @@ btnRefresh.addEventListener("click", refreshAll);
 btnPlayQueue.addEventListener("click", () => playQueue(true)); // user gesture helps autoplay
 btnNext.addEventListener("click", next);
 btnPrev.addEventListener("click", prev);
+btnBack10.addEventListener("click", () => {
+  // If metadata isn't loaded yet, currentTime may be 0 — still safe.
+  const t = Number.isFinite(audio.currentTime) ? audio.currentTime : 0;
+  audio.currentTime = Math.max(0, t - 10);
+
+  // Optional: if you want it to resume immediately after rewinding:
+  // audio.play().catch(() => {});
+});
 
 btnUseCurrent.addEventListener("click", useCurrentLocation);
 btnStartWatch.addEventListener("click", startWatch);
@@ -460,4 +469,5 @@ window.addEventListener("load", () => {
 
   setStatus("Ready. Tap Refresh.");
 });
+
 

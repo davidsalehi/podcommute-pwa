@@ -2,7 +2,7 @@
 // PodCommute app shell service worker
 
 // Bump this version anytime you want clients to pick up new app.js/styles immediately.
-const CACHE_NAME = "podcommute-shell-v3";
+const CACHE_NAME = "podcommute-shell-v4";
 
 const SHELL = [
   "./",
@@ -63,4 +63,5 @@ self.addEventListener("fetch", (event) => {
     fetch(req).catch(() => caches.match(req))
   );
 });
+
 
